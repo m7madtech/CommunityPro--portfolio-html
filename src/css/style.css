@@ -70,6 +70,7 @@ body {
   color: var(--text-color);
   font-family: "Raleway", sans-serif;
   line-height: 1.5;
+  user-select: none;
 }
 
 /* Navbar */
@@ -163,6 +164,10 @@ body {
   margin: 5.5rem 0;
 }
 
+.content-text {
+  user-select: text;
+}
+
 /* Projects */
 #projects {
   display: flex;
@@ -196,6 +201,7 @@ body {
   opacity: 0;
   position: relative;
   transition: 0.5s ease-in-out;
+  
 }
 
 .project-bio {
@@ -205,6 +211,7 @@ body {
   position: relative;
   top: 160px;
   left: 10px;
+  
 }
 
 /* Footer */
