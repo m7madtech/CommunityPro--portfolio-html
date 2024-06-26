@@ -37,6 +37,19 @@ function switchTheme(e) {
   }
 }
 
+function applyPreferredMode() {
+  // Check if user prefers dark mode
+  const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  if (prefersDarkScheme) {
+    document.documentElement.setAttribute("data-theme", "dark");
+    toggleSwitch.checked = true;
+  } else {
+    document.documentElement.setAttribute("data-theme", "light");
+    toggleSwitch.checked = false;
+  }
+}
+
 // Save user preference on load
 
 const currentTheme = localStorage.getItem("theme")
@@ -50,6 +63,14 @@ if (currentTheme) {
     toggleSwitch.checked = true;
   }
 }
+
+else {
+  // Call the function to apply the preferred mode on page load
+  applyPreferredMode();
+}
+
+// Optional: Listen for changes in the user's preferred color scheme
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyPreferredMode);
 
 //Adding date
 
